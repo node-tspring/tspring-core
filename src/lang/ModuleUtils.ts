@@ -92,7 +92,7 @@ export abstract class ModuleUtils {
       const clazz = arg1
       const visited = new Set<string>()
       for (const id in require.cache) {
-        const m = require.cache[id]
+        const m = require.cache[id]!
         visited.add(id)
         if (m.exports == clazz) {
           if (findInChildren(clazz, m.children, visited) == undefined) {
